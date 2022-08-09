@@ -2,29 +2,36 @@
 <html>
 <head>
 	<title>Index Page</title>
+	<link href="static/style.css" rel="stylesheet">
 </head>
 <body>
-	<h3>Profiles</h3>
-	<a href="/add_data">ADD</a>
+	<div class="content">
+	<h1>Profiles</h1>
+	<p class="add-profile">Do you want to generate more profiles?  <a href="/add_data" class="add-btn">Add Data</a></p>
 	<br>
-	<table>
-		<thead>
+	<table class="content-table">
+		<thead class="tbl-header">
+			<tr>
 			<th>Id</th>
 			<th>First Name</th>
 			<th>Last Name</th>
 			<th>Age</th>
-			<th>#</th>
+			<th></th>
+			</tr>
 		</thead>
 		{% for data in profiles %}
 		<tbody>
+			<tr>
 			<td>{{data.id}}</td>
 			<td>{{data.first_name}}</td>
 			<td>{{data.last_name}}</td>
 			<td>{{data.age}}</td>
-			<td><a href="/delete/{{data.id}}" type="button">Delete</a></td>
+			<td class="delete-btn"><a href="/delete/{{data.id}}" type="button">Delete</a></td>
+			</tr>
 		</tbody>
 		{% endfor%}
 	</table>
+	</div>
 </body>
 </html>
 
